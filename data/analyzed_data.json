@@ -1,0 +1,535 @@
+{
+    "total_records": 1000,
+    "fields": [
+        {
+            "field_name": "action",
+            "frequency": 0.527,
+            "dominant_type": "string",
+            "type_stability": 1.0,
+            "cardinality": 0.009487666034155597,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "age",
+            "frequency": 0.074,
+            "dominant_type": "integer",
+            "type_stability": 1.0,
+            "cardinality": 0.5675675675675675,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "air_quality",
+            "frequency": 0.69,
+            "dominant_type": "string",
+            "type_stability": 1.0,
+            "cardinality": 0.005797101449275362,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "altitude",
+            "frequency": 0.629,
+            "dominant_type": "float",
+            "type_stability": 1.0,
+            "cardinality": 1.0,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "app_version",
+            "frequency": 0.397,
+            "dominant_type": "string",
+            "type_stability": 1.0,
+            "cardinality": 0.6952141057934509,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "avatar_url",
+            "frequency": 0.602,
+            "dominant_type": "string",
+            "type_stability": 1.0,
+            "cardinality": 1.0,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "url"
+        },
+        {
+            "field_name": "battery",
+            "frequency": 0.067,
+            "dominant_type": "integer",
+            "type_stability": 1.0,
+            "cardinality": 0.7014925373134329,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "charging",
+            "frequency": 0.23,
+            "dominant_type": "boolean",
+            "type_stability": 1.0,
+            "cardinality": 0.008695652173913044,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "city",
+            "frequency": 0.586,
+            "dominant_type": "string",
+            "type_stability": 1.0,
+            "cardinality": 0.9692832764505119,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "comment",
+            "frequency": 0.309,
+            "dominant_type": "string",
+            "type_stability": 1.0,
+            "cardinality": 1.0,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "country",
+            "frequency": 0.769,
+            "dominant_type": "string",
+            "type_stability": 1.0,
+            "cardinality": 0.3016905071521456,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "cpu_usage",
+            "frequency": 0.558,
+            "dominant_type": "integer",
+            "type_stability": 1.0,
+            "cardinality": 0.17921146953405018,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "device_id",
+            "frequency": 0.681,
+            "dominant_type": "string",
+            "type_stability": 1.0,
+            "cardinality": 1.0,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "uuid"
+        },
+        {
+            "field_name": "device_model",
+            "frequency": 0.858,
+            "dominant_type": "string",
+            "type_stability": 1.0,
+            "cardinality": 0.004662004662004662,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "direction",
+            "frequency": 0.259,
+            "dominant_type": "string",
+            "type_stability": 1.0,
+            "cardinality": 0.015444015444015444,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "disk_usage",
+            "frequency": 0.079,
+            "dominant_type": "integer",
+            "type_stability": 1.0,
+            "cardinality": 0.6582278481012658,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "email",
+            "frequency": 0.291,
+            "dominant_type": "string",
+            "type_stability": 1.0,
+            "cardinality": 0.9965635738831615,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "email"
+        },
+        {
+            "field_name": "error_code",
+            "frequency": 0.327,
+            "dominant_type": "integer",
+            "type_stability": 0.8470948012232415,
+            "cardinality": 0.01834862385321101,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "friends_count",
+            "frequency": 0.394,
+            "dominant_type": "integer",
+            "type_stability": 1.0,
+            "cardinality": 0.9619289340101523,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "gps_lat",
+            "frequency": 0.075,
+            "dominant_type": "float",
+            "type_stability": 1.0,
+            "cardinality": 1.0,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "gps_lon",
+            "frequency": 0.226,
+            "dominant_type": "float",
+            "type_stability": 1.0,
+            "cardinality": 1.0,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "heart_rate",
+            "frequency": 0.175,
+            "dominant_type": "integer",
+            "type_stability": 1.0,
+            "cardinality": 0.5371428571428571,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "humidity",
+            "frequency": 0.775,
+            "dominant_type": "integer",
+            "type_stability": 1.0,
+            "cardinality": 0.11741935483870967,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "ip_address",
+            "frequency": 0.738,
+            "dominant_type": "string",
+            "type_stability": 1.0,
+            "cardinality": 1.0,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "ip_address"
+        },
+        {
+            "field_name": "is_active",
+            "frequency": 0.276,
+            "dominant_type": "boolean",
+            "type_stability": 1.0,
+            "cardinality": 0.007246376811594203,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "is_background",
+            "frequency": 0.138,
+            "dominant_type": "boolean",
+            "type_stability": 1.0,
+            "cardinality": 0.014492753623188406,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "item",
+            "frequency": 0.374,
+            "dominant_type": "string",
+            "type_stability": 0.8128342245989305,
+            "cardinality": 0.016042780748663103,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "language",
+            "frequency": 0.599,
+            "dominant_type": "string",
+            "type_stability": 1.0,
+            "cardinality": 0.2888146911519199,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "last_seen",
+            "frequency": 0.364,
+            "dominant_type": "string",
+            "type_stability": 1.0,
+            "cardinality": 0.9972527472527473,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "iso_timestamp"
+        },
+        {
+            "field_name": "metadata",
+            "frequency": 0.544,
+            "dominant_type": "object",
+            "type_stability": 1.0,
+            "cardinality": 0.0,
+            "is_nested": true,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "mood",
+            "frequency": 0.135,
+            "dominant_type": "string",
+            "type_stability": 1.0,
+            "cardinality": 0.037037037037037035,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "name",
+            "frequency": 0.645,
+            "dominant_type": "string",
+            "type_stability": 1.0,
+            "cardinality": 0.993798449612403,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "network",
+            "frequency": 0.513,
+            "dominant_type": "string",
+            "type_stability": 1.0,
+            "cardinality": 0.009746588693957114,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "os",
+            "frequency": 0.131,
+            "dominant_type": "string",
+            "type_stability": 1.0,
+            "cardinality": 0.03816793893129771,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "payment_status",
+            "frequency": 0.576,
+            "dominant_type": "string",
+            "type_stability": 1.0,
+            "cardinality": 0.005208333333333333,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "phone",
+            "frequency": 0.273,
+            "dominant_type": "string",
+            "type_stability": 1.0,
+            "cardinality": 1.0,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "postal_code",
+            "frequency": 0.052,
+            "dominant_type": "string",
+            "type_stability": 1.0,
+            "cardinality": 1.0,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "purchase_value",
+            "frequency": 0.931,
+            "dominant_type": "float",
+            "type_stability": 1.0,
+            "cardinality": 0.9838882921589689,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "ram_usage",
+            "frequency": 0.678,
+            "dominant_type": "integer",
+            "type_stability": 1.0,
+            "cardinality": 0.14749262536873156,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "retry_count",
+            "frequency": 0.117,
+            "dominant_type": "integer",
+            "type_stability": 1.0,
+            "cardinality": 0.05128205128205128,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "session_id",
+            "frequency": 0.698,
+            "dominant_type": "string",
+            "type_stability": 1.0,
+            "cardinality": 1.0,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "uuid"
+        },
+        {
+            "field_name": "signal_strength",
+            "frequency": 0.27,
+            "dominant_type": "integer",
+            "type_stability": 1.0,
+            "cardinality": 0.018518518518518517,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "sleep_hours",
+            "frequency": 0.366,
+            "dominant_type": "float",
+            "type_stability": 1.0,
+            "cardinality": 0.16666666666666666,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "speed",
+            "frequency": 0.535,
+            "dominant_type": "float",
+            "type_stability": 1.0,
+            "cardinality": 0.9775700934579439,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "spo2",
+            "frequency": 0.933,
+            "dominant_type": "integer",
+            "type_stability": 1.0,
+            "cardinality": 0.011789924973204717,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "steps",
+            "frequency": 0.348,
+            "dominant_type": "integer",
+            "type_stability": 1.0,
+            "cardinality": 0.985632183908046,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "stress_level",
+            "frequency": 0.149,
+            "dominant_type": "string",
+            "type_stability": 1.0,
+            "cardinality": 0.020134228187919462,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "subscription",
+            "frequency": 0.821,
+            "dominant_type": "string",
+            "type_stability": 1.0,
+            "cardinality": 0.0048721071863581,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "temperature_c",
+            "frequency": 0.607,
+            "dominant_type": "float",
+            "type_stability": 1.0,
+            "cardinality": 0.6112026359143328,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "timestamp",
+            "frequency": 0.78,
+            "dominant_type": "string",
+            "type_stability": 1.0,
+            "cardinality": 0.28205128205128205,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "iso_timestamp"
+        },
+        {
+            "field_name": "timezone",
+            "frequency": 0.832,
+            "dominant_type": "string",
+            "type_stability": 1.0,
+            "cardinality": 0.28125,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "username",
+            "frequency": 1.0,
+            "dominant_type": "string",
+            "type_stability": 1.0,
+            "cardinality": 0.645,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        },
+        {
+            "field_name": "weather",
+            "frequency": 0.825,
+            "dominant_type": "string",
+            "type_stability": 1.0,
+            "cardinality": 0.006060606060606061,
+            "is_nested": false,
+            "is_array": false,
+            "dominant_pattern": "none"
+        }
+    ]
+}
