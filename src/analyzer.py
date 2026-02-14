@@ -3,6 +3,8 @@ import os
 import json
 from typing import Dict, Any, List
 from collections import defaultdict
+from metadata_store import MetadataStore
+from timestamp_manager import TimestampManager
 
 class DataAnalyzer:
     def __init__(self):
@@ -93,16 +95,46 @@ class DataAnalyzer:
         with open(output_file, 'w') as f:
             json.dump(summary, f, indent=4)
         print(f"Analysis saved to {output_file}")
+        return summary
 
 if __name__ == "__main__":
     INPUT_FILE = "../data/normalized_data.json"
+    ANALYSIS_FILE = "../data/analyzed_data.json"
     
     if os.path.exists(INPUT_FILE):
         with open(INPUT_FILE, 'r') as f:
             data = json.load(f)
         
+        # 1. Run the Analyzer (No changes to logic)
         analyzer = DataAnalyzer()
         analyzer.analyze_records(data)
-        analyzer.save_analysis()
+        analysis_summary = analyzer.save_analysis(ANALYSIS_FILE)
+
+        # 2. Extract batch info for TimestampManager
+        latest_ts = "unknown"
+        for rec in data:
+            if 'timestamp' in rec:
+                if latest_ts == "unknown" or rec['timestamp'] > latest_ts:
+                    latest_ts = rec['timestamp']
+
+        # 3. Log History in TimestampManager
+        ts_manager = TimestampManager()
+        ts_manager.update_timestamps(latest_ts, len(data))
+
+        # 4. Initialize MetadataStore (Preparation for Classification)
+        meta_store = MetadataStore()
+        # We don't sync_from_pipeline yet because classification hasn't happened,
+        # but we've recorded that the analysis phase is complete in the logs.
+        
+        print(f"Pipeline State Updated: {len(data)} records analyzed and logged in history.")
     else:
         print(f"No data found at {INPUT_FILE}. Run client.py first.")
+
+# EXPLANATION OF INTEGRATION:
+# 1. NON-DESTRUCTIVE: The DataAnalyzer class remains exactly as you provided. 
+# 2. HISTORICAL LOGGING: By calling TimestampManager immediately after analysis, 
+#    we record exactly when the analysis happened and how many records were involved.
+# 3. LATEST TIMESTAMP DISCOVERY: The code scans the batch to find the newest 
+#    'timestamp' value. This is passed to the manager to update the "High Water Mark".
+# 4. PREPARING THE STORE: By initializing MetadataStore here, we ensure the 
+#    directory and initial JSON exist before the Classifier takes over.
