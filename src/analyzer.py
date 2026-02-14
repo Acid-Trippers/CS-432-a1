@@ -60,7 +60,10 @@ class DataAnalyzer:
             for field_name, value in record.items():
                 self._analyze_value(field_name, value)
 
-    def save_analysis(self, output_file: str = "data/analyzed_data.json"):
+    def save_analysis(self, output_file: str = "../data/analyzed_data.json"):
+        if not os.path.exists("../data"):
+            os.makedirs("../data")
+
         fields_summary = []
         for f in sorted(self.field_counts.keys()):
             count = self.field_counts[f]
@@ -92,7 +95,7 @@ class DataAnalyzer:
         print(f"Analysis saved to {output_file}")
 
 if __name__ == "__main__":
-    INPUT_FILE = "data/raw_data.json"
+    INPUT_FILE = "../data/normalized_data.json"
     
     if os.path.exists(INPUT_FILE):
         with open(INPUT_FILE, 'r') as f:

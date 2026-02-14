@@ -10,16 +10,17 @@ def wait_for_server(url: str, timeout: int = 15):
     while time.time() - start_time < timeout:
         try:
             with httpx.Client() as client:
-                response = client.get(url.replace(url.split('/')[-1], ""))
+                response = client.get("http://127.0.0.1:8000/")
                 if response.status_code == 200:
                     return True
         except (httpx.RequestError, httpx.ConnectError):
             time.sleep(1)
     return False
 
-def collect_data(url: str, count: int, output_file: str = "data/raw_data.json"):
-    if not os.path.exists("data"):
-        os.makedirs("data")
+def collect_data(url: str, count: int, output_file: str = "../data/raw_data.json"):
+    data_dir = os.path.dirname(output_file)
+    if not os.path.exists(data_dir):
+        os.makedirs(data_dir)
         
     records = []
     print(f"Connecting to stream: {url}")
@@ -54,15 +55,15 @@ if __name__ == "__main__":
 
     STREAM_URL = f"http://127.0.0.1:8000/record/{record_count}"
     
-    EXTERNAL_SERVER_DIR = "../external/" 
+    EXTERNAL_SERVER_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../external/"))
     
     print(f">>> Starting Data Server from external path: {EXTERNAL_SERVER_DIR}")
+    
     server_proc = subprocess.Popen(
-        [sys.executable, "-m", "uvicorn", "data_stream_server:app", "--port", "8000", "--log-level", "error"],
+        [sys.executable, "-m", "uvicorn", "simulation_code:app", "--port", "8000"],
         cwd=EXTERNAL_SERVER_DIR,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-        text=True
+        stdout=sys.stdout,
+        stderr=sys.stderr
     )
     
     print(">>> Waiting for server to become responsive...")
@@ -75,8 +76,5 @@ if __name__ == "__main__":
             server_proc.wait()
             print(">>> Done.")
     else:
-        print(">>> Error: Server failed to start. Check if data_stream_server.py exists in external folder.")
-        stdout, stderr = server_proc.communicate()
-        if stderr:
-            print(f"Server Error Log:\n{stderr}")
+        print(">>> Error: Server failed to start or timed out.")
         server_proc.terminate()
