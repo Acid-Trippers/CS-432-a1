@@ -1,118 +1,131 @@
 import json
-import os
-from metadata_store import MetadataStore
-from timestamp_manager import TimestampManager
+from dataclasses import dataclass
+from typing import List, Dict, Any
 
-class HybridClassifier:
-    def __init__(self, analysis_file: str):
-        # Thresholds for SQL inclusion: must appear in 50% of records and be 95% type-stable
-        self.sql_threshold = 0.5
-        self.stability_threshold = 0.95
-        # Mandatory fields that must exist in both databases for relationship linking
-        self.mirrored_fields = {"username", "timestamp", "device_id"}
-        self.analysis_file = analysis_file
+WEIGHTS = {
+    "sparsity": 1.5,
+    "nested": 2.0,
+    "lowCardinality": 1.0
+}
 
-    def generate_backend_decision(self, output_file="../data/backend_decision.json"):
-        """
-        Reads analysis results and categorizes every field into SQL, Mongo, or Both.
-        Outputs a manifest that backends will use to filter raw data.
-        """
-        if not os.path.exists(self.analysis_file):
-            return None
-        
-        with open(self.analysis_file, 'r') as f:
-            analysis = json.load(f)
-        
-        # Manifest structure to guide the backends
-        decision_manifest = {
-            "sql_only": [],    # Fields for PostgreSQL only
-            "mongo_only": [],  # Fields for MongoDB only
-            "both": []         # Overlapping fields for linking
+THRESHOLDS = {
+    "densityLimit": 0.6,
+    "stabilityLimit": 0.99,
+    "cardinalityLimit": 0.1,
+}
+
+MONGO_SCORE_THRESHOLD = 0.3 
+MANDATORY_BOTH = {"username", "timestamp", "sys_ingested_time"}
+
+@dataclass
+class FieldStats:
+    fieldName: str
+    frequency: float
+    dominantType: str
+    typeStability: float
+    cardinality: float
+    isNested: bool
+    isArray: bool
+    dominantPattern: str
+
+class SchemaClassifier:
+    def __init__(self, weights: Dict[str, float], limits: Dict[str, float], threshold: float):
+        self.weights = weights
+        self.limits = limits
+        self.threshold = threshold
+
+    def classifyField(self, field: FieldStats) -> Dict[str, Any]:
+        result = {
+            "fieldName": field.fieldName,
+            "decision": "SQL",
+            "score": 0.0,
+            "flags": [],
+            "reason": "Default"
         }
-        
-        sql_list = []
-        
-        for field in analysis.get("fields", []):
-            name = field["field_name"]
-            freq = field["frequency"]
-            stability = field["type_stability"]
-            is_nested = field["is_nested"]
-            
-            # Logic: SQL needs flat, frequent, and type-stable data
-            is_sql_stable = (freq > self.sql_threshold and 
-                             stability > self.stability_threshold and 
-                             not is_nested)
-            
-            # Metrics metadata for the manifest
-            field_entry = {
-                "field": name,
-                "metrics": {
-                    "frequency": freq,
-                    "stability": stability,
-                    "is_nested": is_nested
-                }
-            }
 
-            # 1. Handle "Both" (Mirrored Fields)
-            if name in self.mirrored_fields:
-                decision_manifest["both"].append(field_entry)
-                sql_list.append(name)
-            
-            # 2. Handle "SQL Only"
-            elif is_sql_stable:
-                decision_manifest["sql_only"].append(field_entry)
-                sql_list.append(name)
-            
-            # 3. Handle "Mongo Only" (Unstable, Sparse, or Nested)
-            else:
-                decision_manifest["mongo_only"].append(field_entry)
+        # Mandatory Check
+        if field.fieldName in MANDATORY_BOTH:
+            result["decision"] = "BOTH"
+            result["reason"] = "Mandatory Field"
+            return result
 
-        # Save the manifest to disk
-        os.makedirs(os.path.dirname(output_file), exist_ok=True)
-        with open(output_file, 'w') as f:
-            json.dump(decision_manifest, f, indent=4)
-            
-        return decision_manifest, sql_list
+        # Hard Gate: Type Instability
+        if field.typeStability < self.limits["stabilityLimit"]:
+            result["decision"] = "MONGO"
+            result["score"] = 1.0 # Max score for hard gate
+            result["flags"].append("UNSTABLE_TYPE")
+            result["reason"] = "Hard Gate: Unstable Types"
+            return result
+
+        # Calculate Penalties
+        score = 0.0
+        maxScore = sum(self.weights.values())
+        
+        # Sparsity Flag
+        if field.frequency < self.limits["densityLimit"]:
+            score += self.weights["sparsity"]
+            result["flags"].append("SPARSITY")
+
+        # Nested Flag
+        if field.isNested or field.isArray:
+            score += self.weights["nested"]
+            result["flags"].append("NESTED")
+
+        # Low Cardinality Flag
+        if field.cardinality < self.limits["cardinalityLimit"]:
+            score += self.weights["lowCardinality"]
+            result["flags"].append("LOW_CARDINALITY")
+
+        # Final Score
+        normalizedScore = score / maxScore
+        result["score"] = round(normalizedScore, 3)
+
+        if normalizedScore > self.threshold:
+            result["decision"] = "MONGO"
+            result["reason"] = "Score Threshold Exceeded"
+        else:
+            result["decision"] = "SQL"
+            result["reason"] = "Safe for SQL"
+
+        return result
+
+def runPipeline():
+    # Load Data
+    try:
+        with open('../data/analyzed_data.json', 'r', encoding='utf-8') as f:
+            data = json.load(f)
+    except FileNotFoundError:
+        print("Error: analyzed_data.json not found")
+        return
+
+    classifier = SchemaClassifier(WEIGHTS, THRESHOLDS, MONGO_SCORE_THRESHOLD)
+    output_records = []
+
+    print(f"{'Field':<20} {'Score':<6} {'Decision':<10} {'Flags'}")
+    print("-" * 60)
+
+    for record in data['fields']:
+        stats = FieldStats(
+            fieldName=record['field_name'],
+            frequency=record['frequency'],
+            dominantType=record['dominant_type'],
+            typeStability=record['type_stability'],
+            cardinality=record['cardinality'],
+            isNested=record['is_nested'],
+            isArray=record['is_array'],
+            dominantPattern=record['dominant_pattern']
+        )
+        
+        res = classifier.classifyField(stats)
+        output_records.append(res)
+        
+        flags_str = ", ".join(res["flags"])
+        print(f"{res['fieldName']:<20} {res['score']:<6} {res['decision']:<10} {flags_str}")
+
+    # Save Results
+    with open('../data/classification_results.json', 'w', encoding='utf-8') as f:
+        json.dump(output_records, f, indent=2)
+    
 
 if __name__ == "__main__":
-    ANALYSIS_FILE = "../data/analyzed_data.json"
-    DATA_FILE = "../data/normalized_data.json"
-    DECISION_FILE = "../data/backend_decision.json"
-    
-    classifier = HybridClassifier(ANALYSIS_FILE)
-    
-    # 1. Generate the strategy manifest
-    result = classifier.generate_backend_decision(DECISION_FILE)
-
-    if result:
-        manifest, sql_list = result
-        
-        # 2. Sync with MetadataStore (Master Plan)
-        meta = MetadataStore()
-        total_records = 0
-        if os.path.exists(DATA_FILE):
-            with open(DATA_FILE, 'r') as f:
-                total_records = len(json.load(f))
-
-        meta.sync_from_pipeline(
-            analysis_file=ANALYSIS_FILE,
-            sql_fields=sql_list,
-            mirrored_fields=classifier.mirrored_fields,
-            total_processed=total_records
-        )
-
-        # 3. Sync with TimestampManager (Audit Log)
-        latest_ts = "0000-00-00"
-        if os.path.exists(DATA_FILE):
-            with open(DATA_FILE, 'r') as f:
-                records = json.load(f)
-                if records:
-                    latest_ts = max([r.get('timestamp', '0000') for r in records])
-        
-        ts_log = TimestampManager()
-        ts_log.update_timestamps(latest_ts, total_records)
-
-        print(f"Manifest Generated: {DECISION_FILE}")
-        print(f"Metadata and Audit Logs updated for {total_records} records.")
-    else:
-        print("Analysis file not found. Run analyzer.py first.")
+    runPipeline()
