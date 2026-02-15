@@ -10,7 +10,7 @@ WEIGHTS = {
 
 THRESHOLDS = {
     "densityLimit": 0.6,
-    "stabilityLimit": 0.99,
+    "stabilityLimit": 0.9999,
     "cardinalityLimit": 0.1,
 }
 
