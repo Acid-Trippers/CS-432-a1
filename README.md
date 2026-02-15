@@ -14,6 +14,11 @@ CS-432-a1/
 │   ├── analyzed_data.json         # Records with extracted statistics and patterns
 │   ├── decision_graph.png         # Visualization of classification decisions
 │   └── timestamp_registry.json    # Historical ingestion metadata
+│   └── sqlRecords.json            # Stores records to be sent to SQL
+│   └── mongoRecords.Json          # Stores records to be sent to MongoDB
+│   └── field_metadata.json        # Stores which field goes where and why
+│   └── router_logger.txt          # Logging ingested records
+│   └── drift_logger.txt           # Logging fields to be shifted
 ├── external/
 │   └── simulation_code.py         # Data stream generator (provided by instructor)
 ├── src/
@@ -21,8 +26,9 @@ CS-432-a1/
 │   ├── normalizer.py              # Phase 1: Field name normalization and cleaning
 │   ├── analyzer.py                # Phase 2: Statistical analysis (frequency, types, patterns)
 │   ├── classifier.py              # Phase 3: Classification logic (SQL vs MongoDB routing)
-│   ├── metadata_store.py          # Persistence layer for classification metadata
 │   ├── timestamp_manager.py       # Tracks ingestion runs and data timestamps
+│   ├── router_logger.py           # Ingests data one record at a time, routes them to DB and logs records.
+│   ├── main.py                    # Python script to activate the pipeline.
 │   └── classification_visualiser.py  # Generates decision visualization
 ├── .gitignore
 ├── requirements.txt               # Project dependencies
@@ -84,20 +90,23 @@ The server will be available at `http://127.0.0.1:8000`
 ### Step 2: Run the Data Pipeline
 
 ```bash
-# Collect records from the stream
-python src/client.py
+# In the repo directory, run
+python src/main.py initialise
+to get a batch of 1000 records to create metadata according to classification heuristics
 
-# Normalize field names
-python src/normalizer.py
+# In the repo directory, run
+python src/main.py router <number>
+to get the next <number> records and store them in SQL Database or MongoDB
 
-# Extract statistics and patterns
-python src/analyzer.py
+# In the repo directory, run
+python src/main.py clearLogs
+to clear all logs
 
-# Classify and route fields to appropriate databases
-python src/classifier.py
+# In the repo directory, run
+python src/main.py clearRecords
+to clear all records from both Databases
 ```
 
-Each script reads from the previous stage's output and writes processed data to the `data/` directory.
 
 ### Data Stream API
 
