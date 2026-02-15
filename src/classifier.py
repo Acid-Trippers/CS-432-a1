@@ -127,5 +127,5 @@ def runPipeline():
         json.dump(output_records, f, indent=2)
     
 
-if __name__ == "__main__":
+def run_classification():
     runPipeline()

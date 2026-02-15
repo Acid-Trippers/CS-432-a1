@@ -43,7 +43,7 @@ class DynamicNormalizer:
         
         return {self.normalize_key(k): self.normalize_record(v) for k, v in record.items()}
 
-if __name__ == "__main__":
+def run_field_normalization():
     INPUT_FILE = "../data/raw_data.json"
     OUTPUT_FILE = "../data/normalized_data.json"
 

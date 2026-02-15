@@ -86,7 +86,7 @@
             "frequency": 0.586,
             "dominant_type": "string",
             "type_stability": 1.0,
-            "cardinality": 0.9692832764505119,
+            "cardinality": 0.9880546075085325,
             "is_nested": false,
             "is_array": false,
             "dominant_pattern": "none"
@@ -166,7 +166,7 @@
             "frequency": 0.291,
             "dominant_type": "string",
             "type_stability": 1.0,
-            "cardinality": 0.9965635738831615,
+            "cardinality": 1.0,
             "is_nested": false,
             "is_array": false,
             "dominant_pattern": "email"
@@ -276,7 +276,7 @@
             "frequency": 0.599,
             "dominant_type": "string",
             "type_stability": 1.0,
-            "cardinality": 0.2888146911519199,
+            "cardinality": 0.2938230383973289,
             "is_nested": false,
             "is_array": false,
             "dominant_pattern": "none"
@@ -286,7 +286,7 @@
             "frequency": 0.364,
             "dominant_type": "string",
             "type_stability": 1.0,
-            "cardinality": 0.9972527472527473,
+            "cardinality": 1.0,
             "is_nested": false,
             "is_array": false,
             "dominant_pattern": "iso_timestamp"
@@ -316,7 +316,7 @@
             "frequency": 0.645,
             "dominant_type": "string",
             "type_stability": 1.0,
-            "cardinality": 0.993798449612403,
+            "cardinality": 0.9906976744186047,
             "is_nested": false,
             "is_array": false,
             "dominant_pattern": "none"
@@ -496,7 +496,7 @@
             "frequency": 0.78,
             "dominant_type": "string",
             "type_stability": 1.0,
-            "cardinality": 0.28205128205128205,
+            "cardinality": 1.0,
             "is_nested": false,
             "is_array": false,
             "dominant_pattern": "iso_timestamp"
@@ -506,7 +506,7 @@
             "frequency": 0.832,
             "dominant_type": "string",
             "type_stability": 1.0,
-            "cardinality": 0.28125,
+            "cardinality": 0.27524038461538464,
             "is_nested": false,
             "is_array": false,
             "dominant_pattern": "none"

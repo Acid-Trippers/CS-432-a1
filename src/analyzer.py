@@ -97,7 +97,7 @@ class DataAnalyzer:
         print(f"Analysis saved to {output_file}")
         return summary
 
-if __name__ == "__main__":
+def run_data_analysis():
     INPUT_FILE = "../data/normalized_data.json"
     ANALYSIS_FILE = "../data/analyzed_data.json"
     

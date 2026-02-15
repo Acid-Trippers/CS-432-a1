@@ -45,8 +45,7 @@ def collect_data(url: str, count: int, output_file: str = "../data/raw_data.json
     
     print(f"Collection complete. {len(records)} records saved to {output_file}")
 
-if __name__ == "__main__":
-    record_count = 1000
+def run_data_collection(record_count: int = 1000):
     if len(sys.argv) > 1:
         try:
             record_count = int(sys.argv[1])
