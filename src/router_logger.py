@@ -10,7 +10,7 @@ scriptDir = os.path.dirname(os.path.abspath(__file__))
 dataDir = os.path.join(scriptDir, '..', 'data')
 externalDir = os.path.join(scriptDir, '..', 'external')
 
-classificationFile = os.path.join(dataDir, 'classification_results.json')
+classificationFile = os.path.join(dataDir, 'field_metadata.json')
 sqlOutputFile = os.path.join(dataDir, 'sql_records.json')
 mongoOutputFile = os.path.join(dataDir, 'mongo_records.json')
 routerLogFile = os.path.join(dataDir, 'router_logger.txt')

@@ -123,7 +123,7 @@ def runPipeline():
         print(f"{res['fieldName']:<20} {res['score']:<6} {res['decision']:<10} {flags_str}")
 
     # Save Results
-    with open('data/classification_results.json', 'w', encoding='utf-8') as f:
+    with open('data/field_metadata.json', 'w', encoding='utf-8') as f:
         json.dump(output_records, f, indent=2)
     
 

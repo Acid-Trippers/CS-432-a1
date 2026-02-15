@@ -29,7 +29,7 @@ def run_initialization():
     print("\n--- Step 5: Visualization ---")
     run_visualization()
     
-    print("\n>>> Initialization Complete. 'classification_results.json' is ready.")
+    print("\n>>> Initialization Complete. 'field_metadata.json' is ready.")
 
 def run_router(count):
     print(f"\n>>> Starting Router for {count} records...")
