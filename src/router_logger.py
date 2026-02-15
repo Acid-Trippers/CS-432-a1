@@ -93,7 +93,6 @@ def update_metadata_file(field_name, new_decision, reason):
         updated = False
         for rule in rules:
             if rule['fieldName'] == field_name:
-                # Only update if the decision is actually changing
                 if rule['decision'] != new_decision:
                     rule['decision'] = new_decision
                     rule['reason'] = reason
@@ -123,28 +122,33 @@ def route_record(record, schemaMap, analyzedSchema, logFile):
     logEntry += f"{len(record)} Fields\n"
 
     for field, value in record.items():
-        # --- 1. Drift Detection ---
+        # 1. Get current decision status
+        # Default to MONGO if we've never seen this field before
+        existing_decision = schemaMap.get(field, "MONGO")
+
+        # 2. Drift Detection
         expectedType = analyzedSchema.get(field)
         currentType = getValType(value)
         
-        # Check for Drift (skip check if expectedType is None)
-        if expectedType and currentType != expectedType:
+        # Check for Drift ONLY if it's currently going to SQL (or BOTH).
+        # If it is already MONGO, we ignore type changes (Mongo-to-Mongo is safe).
+        if expectedType and currentType != expectedType and existing_decision != "MONGO":
+            
             # A. Log the Drift
             with open(driftLogFile, 'a', encoding='utf-8') as df:
                 df.write(f"Drift detected for field '{field}' at {ingestTime}\n")
                 df.write(f"Expected: {expectedType}, Found: {currentType}. Routing to MONGO.\n\n")
             
             # B. Update Metadata (Persistence)
-            # Only perform disk write if our in-memory map still thinks it's SQL (or missing)
-            if schemaMap.get(field) != "MONGO":
-                update_metadata_file(field, "MONGO", f"Drift: Expected {expectedType}, Got {currentType}")
-                # Update in-memory map to avoid re-writing file for every record in this batch
-                schemaMap[field] = "MONGO"
-
+            update_metadata_file(field, "MONGO", f"Drift: Expected {expectedType}, Got {currentType}")
+            
+            # Update in-memory map so we don't log this again for the rest of the batch
+            schemaMap[field] = "MONGO"
+            
             decision = "MONGO"
         else:
-            # --- 2. Standard Classification ---
-            decision = schemaMap.get(field, "MONGO")
+            # No drift or already Mongo
+            decision = existing_decision
 
         logEntry += f"{field} : {decision}\n"
 
