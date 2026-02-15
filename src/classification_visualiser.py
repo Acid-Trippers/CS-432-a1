@@ -48,7 +48,7 @@ def plot_decision_boundary(json_path):
 
     plt.legend(title="Decision", loc='upper left')
     plt.tight_layout()
-    plt.savefig('../data/decision_graph.png')
+    plt.savefig('data/decision_graph.png')
 
 def run_visualization():
-    plot_decision_boundary('../data/classification_results.json')
+    plot_decision_boundary('data/classification_results.json')

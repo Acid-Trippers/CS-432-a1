@@ -6,7 +6,7 @@ def get_current_server_time() -> str:
     return datetime.now(timezone.utc).isoformat()
 
 class TimestampManager:
-    def __init__(self, storage_path="../data/timestamp_registry.json"):
+    def __init__(self, storage_path="data/timestamp_registry.json"):
         self.storage_path = storage_path
         self.state = self._load_state()
 

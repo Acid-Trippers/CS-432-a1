@@ -44,8 +44,8 @@ class DynamicNormalizer:
         return {self.normalize_key(k): self.normalize_record(v) for k, v in record.items()}
 
 def run_field_normalization():
-    INPUT_FILE = "../data/raw_data.json"
-    OUTPUT_FILE = "../data/normalized_data.json"
+    INPUT_FILE = "data/raw_data.json"
+    OUTPUT_FILE = "data/normalized_data.json"
 
     if os.path.exists(INPUT_FILE):
         with open(INPUT_FILE, 'r') as f:
@@ -71,6 +71,6 @@ def run_field_normalization():
 # 1. Added 'import os' and 'import json' to handle file operations.
 # 2. Updated 'normalize_record' to handle lists/arrays recursively (essential for 'readings' or 'tags' fields).
 # 3. Added an 'if __name__ == "__main__":' block to make the script executable.
-# 4. Implemented file loading from '../data/raw_data.json' and saving to '../data/normalized_data.json'.
+# 4. Implemented file loading from 'data/raw_data.json' and saving to 'data/normalized_data.json'.
 # 5. Added directory verification using 'os.makedirs' to prevent FileNotFoundError.
 # 6. Added a print summary showing the final Master Keys discovered during the fuzzy matching process.

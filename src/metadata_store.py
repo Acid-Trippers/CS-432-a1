@@ -3,7 +3,7 @@ import os
 from datetime import datetime
 
 class MetadataStore:
-    def __init__(self, metadata_path="../data/system_metadata.json"):
+    def __init__(self, metadata_path="data/system_metadata.json"):
         self.metadata_path = metadata_path
         self.registry = self._load_initial_registry()
 

@@ -17,7 +17,7 @@ def wait_for_server(url: str, timeout: int = 15):
             time.sleep(1)
     return False
 
-def collect_data(url: str, count: int, output_file: str = "../data/raw_data.json"):
+def collect_data(url: str, count: int, output_file: str = "data/raw_data.json"):
     data_dir = os.path.dirname(output_file)
     if not os.path.exists(data_dir):
         os.makedirs(data_dir)

@@ -106,7 +106,7 @@
             "frequency": 0.769,
             "dominant_type": "string",
             "type_stability": 1.0,
-            "cardinality": 0.3016905071521456,
+            "cardinality": 0.30429128738621586,
             "is_nested": false,
             "is_array": false,
             "dominant_pattern": "none"
@@ -316,7 +316,7 @@
             "frequency": 0.645,
             "dominant_type": "string",
             "type_stability": 1.0,
-            "cardinality": 0.9906976744186047,
+            "cardinality": 0.9968992248062015,
             "is_nested": false,
             "is_array": false,
             "dominant_pattern": "none"
@@ -516,7 +516,7 @@
             "frequency": 1.0,
             "dominant_type": "string",
             "type_stability": 1.0,
-            "cardinality": 0.645,
+            "cardinality": 0.644,
             "is_nested": false,
             "is_array": false,
             "dominant_pattern": "none"

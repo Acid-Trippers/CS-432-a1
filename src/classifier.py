@@ -92,7 +92,7 @@ class SchemaClassifier:
 def runPipeline():
     # Load Data
     try:
-        with open('../data/analyzed_data.json', 'r', encoding='utf-8') as f:
+        with open('data/analyzed_data.json', 'r', encoding='utf-8') as f:
             data = json.load(f)
     except FileNotFoundError:
         print("Error: analyzed_data.json not found")
@@ -123,7 +123,7 @@ def runPipeline():
         print(f"{res['fieldName']:<20} {res['score']:<6} {res['decision']:<10} {flags_str}")
 
     # Save Results
-    with open('../data/classification_results.json', 'w', encoding='utf-8') as f:
+    with open('data/classification_results.json', 'w', encoding='utf-8') as f:
         json.dump(output_records, f, indent=2)
     
 
