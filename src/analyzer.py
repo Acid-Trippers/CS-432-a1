@@ -44,11 +44,16 @@ class DataAnalyzer:
         self.field_counts[field_name] += 1
         type_name = self._get_type_name(value)
         self.field_types[field_name][type_name] += 1
-        if isinstance(value, dict):
+        
+        # CHANGE HERE: Check for dots in the field name to detect nesting
+        if "." in field_name:
             self.nested_fields.add(field_name)
-        elif isinstance(value, list):
+            
+        if isinstance(value, list):
             self.array_fields.add(field_name)
         else:
+            # Note: We don't check for 'dict' here anymore because 
+            # the Normalizer has already flattened them.
             if len(self.field_values[field_name]) < self.value_count_limit:
                 self.field_values[field_name].add(str(value))
             if isinstance(value, str):
@@ -77,13 +82,14 @@ class DataAnalyzer:
             patterns = self.pattern_matches[f]
             dom_pattern = max(patterns.items(), key=lambda x: x[1])[0] if patterns else 'none'
             
+            # Inside the loop in save_analysis:
             fields_summary.append({
                 'field_name': f,
                 'frequency': freq,
                 'dominant_type': dom_type,
                 'type_stability': stability,
                 'cardinality': cardinality,
-                'is_nested': f in self.nested_fields,
+                'is_nested': f in self.nested_fields, # This will now be TRUE for "metadata.temp"
                 'is_array': f in self.array_fields,
                 'dominant_pattern': dom_pattern
             })

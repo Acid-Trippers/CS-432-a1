@@ -34,14 +34,34 @@ class DynamicNormalizer:
             self.master_keys.append(clean_key)
             return clean_key
     
-    def normalize_record(self, record):
-        """Recursively cleans all keys in a JSON record."""
-        if isinstance(record, list):
-            return [self.normalize_record(item) for item in record]
+    def normalize_record(self, record, prefix=""):
+        """
+        Recursively flattens the record into dot-notation paths.
+        Example: {'User': {'ID': 1}} -> {'user.id': 1}
+        """
         if not isinstance(record, dict):
             return record
-        
-        return {self.normalize_key(k): self.normalize_record(v) for k, v in record.items()}
+
+        flattened = {}
+        for k, v in record.items():
+            # 1. Clean and Fuzzy Match the key
+            clean_k = self.normalize_key(k)
+            
+            # 2. Construct the full path (e.g., "metadata.version")
+            path = f"{prefix}.{clean_k}" if prefix else clean_k
+
+            if isinstance(v, dict):
+                # RECURSION: Flatten the inner dictionary
+                flattened.update(self.normalize_record(v, prefix=path))
+            elif isinstance(v, list):
+                # Handle Arrays: Mark them so the classifier knows they are complex
+                # We store the list but the Classifier will see 'isArray=True'
+                flattened[path] = v
+            else:
+                # LEAF NODE: Store the actual value
+                flattened[path] = v
+                
+        return flattened
 
 def run_field_normalization():
     INPUT_FILE = "data/raw_data.json"

@@ -66,10 +66,17 @@ class SchemaClassifier:
             score += self.weights["sparsity"]
             result["flags"].append("SPARSITY")
 
-        # Nested Flag
-        if field.isNested or field.isArray:
+        # UPDATED NESTED LOGIC:
+        # We only penalize if it's an ARRAY or a literal 'object' type.
+        # If it's a flattened path (isNested=True but dominantType is float/int/str), 
+        # we don't apply the heavy 2.0 penalty.
+        if field.isArray or field.dominantType in ['object', 'dict', 'array']:
             score += self.weights["nested"]
-            result["flags"].append("NESTED")
+            result["flags"].append("COMPLEX_STRUCTURE")
+        elif field.isNested:
+            # Optional: Add a much smaller "Path Penalty" (e.g., 0.1) 
+            # if you still want to slightly prefer top-level fields for SQL.
+            pass
 
         # Low Cardinality Flag
         if field.cardinality < self.limits["cardinalityLimit"]:
