@@ -92,19 +92,19 @@ The server will be available at `http://127.0.0.1:8000`
 ```bash
 # In the repo directory, run
 python src/main.py initialise
-to get a batch of 1000 records to create metadata according to classification heuristics
+# to get a batch of 1000 records to create metadata according to classification heuristics
 
 # In the repo directory, run
 python src/main.py router <number>
-to get the next <number> records and store them in SQL Database or MongoDB
+# to get the next <number> records and store them in SQL Database or MongoDB
 
 # In the repo directory, run
 python src/main.py clearLogs
-to clear all logs
+# to clear all logs
 
 # In the repo directory, run
 python src/main.py clearRecords
-to clear all records from both Databases
+# to clear all records from both Databases
 ```
 
 
