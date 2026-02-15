@@ -1,4 +1,4 @@
-Record received at 2026-02-15T14:13:32.105355
+Record received at 2026-02-15T14:52:51.823997
 21 Fields
 username : BOTH
 name : SQL
@@ -22,7 +22,7 @@ avatar_url : SQL
 friends_count : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.105355
+Record received at 2026-02-15T14:52:51.823997
 28 Fields
 username : BOTH
 name : SQL
@@ -53,7 +53,7 @@ comment : MONGO
 avatar_url : SQL
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.105355
+Record received at 2026-02-15T14:52:51.823997
 31 Fields
 username : BOTH
 name : SQL
@@ -87,7 +87,7 @@ friends_count : MONGO
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.107361
+Record received at 2026-02-15T14:52:51.823997
 24 Fields
 username : BOTH
 phone : MONGO
@@ -114,7 +114,7 @@ error_code : MONGO
 comment : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.107361
+Record received at 2026-02-15T14:52:51.823997
 24 Fields
 username : BOTH
 name : SQL
@@ -141,7 +141,7 @@ avatar_url : SQL
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.107361
+Record received at 2026-02-15T14:52:51.823997
 20 Fields
 username : BOTH
 ip_address : SQL
@@ -164,7 +164,7 @@ comment : MONGO
 avatar_url : SQL
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.107361
+Record received at 2026-02-15T14:52:51.823997
 24 Fields
 username : BOTH
 name : SQL
@@ -191,7 +191,7 @@ comment : MONGO
 friends_count : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.107361
+Record received at 2026-02-15T14:52:51.823997
 26 Fields
 username : BOTH
 name : SQL
@@ -220,7 +220,7 @@ avatar_url : SQL
 friends_count : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.107361
+Record received at 2026-02-15T14:52:51.823997
 34 Fields
 username : BOTH
 name : SQL
@@ -257,7 +257,7 @@ avatar_url : SQL
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.107361
+Record received at 2026-02-15T14:52:51.834495
 19 Fields
 username : BOTH
 email : MONGO
@@ -279,7 +279,7 @@ ram_usage : SQL
 avatar_url : SQL
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.109366
+Record received at 2026-02-15T14:52:51.834495
 21 Fields
 username : BOTH
 ip_address : SQL
@@ -303,7 +303,7 @@ last_seen : MONGO
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.109366
+Record received at 2026-02-15T14:52:51.834495
 26 Fields
 username : BOTH
 name : SQL
@@ -332,7 +332,7 @@ friends_count : MONGO
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.109366
+Record received at 2026-02-15T14:52:51.834495
 26 Fields
 username : BOTH
 name : SQL
@@ -361,7 +361,7 @@ avatar_url : SQL
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.109366
+Record received at 2026-02-15T14:52:51.834495
 28 Fields
 username : BOTH
 name : SQL
@@ -392,7 +392,7 @@ avatar_url : SQL
 friends_count : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.109366
+Record received at 2026-02-15T14:52:51.834495
 23 Fields
 username : BOTH
 name : SQL
@@ -418,7 +418,7 @@ ram_usage : SQL
 error_code : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.109366
+Record received at 2026-02-15T14:52:51.834495
 27 Fields
 username : BOTH
 name : SQL
@@ -448,7 +448,7 @@ retry_count : MONGO
 avatar_url : SQL
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.109366
+Record received at 2026-02-15T14:52:51.834495
 26 Fields
 username : BOTH
 name : SQL
@@ -477,7 +477,7 @@ last_seen : MONGO
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.109366
+Record received at 2026-02-15T14:52:51.834495
 27 Fields
 username : BOTH
 name : SQL
@@ -507,7 +507,7 @@ last_seen : MONGO
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.111371
+Record received at 2026-02-15T14:52:51.834495
 32 Fields
 username : BOTH
 name : SQL
@@ -542,7 +542,7 @@ last_seen : MONGO
 friends_count : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.111371
+Record received at 2026-02-15T14:52:51.834495
 26 Fields
 username : BOTH
 ip_address : SQL
@@ -571,7 +571,7 @@ ram_usage : SQL
 friends_count : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.111371
+Record received at 2026-02-15T14:52:51.834495
 23 Fields
 username : BOTH
 email : MONGO
@@ -597,7 +597,7 @@ avatar_url : SQL
 friends_count : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.111371
+Record received at 2026-02-15T14:52:51.834495
 24 Fields
 username : BOTH
 device_id : SQL
@@ -624,7 +624,7 @@ comment : MONGO
 avatar_url : SQL
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.111371
+Record received at 2026-02-15T14:52:51.834495
 24 Fields
 username : BOTH
 name : SQL
@@ -651,7 +651,7 @@ avatar_url : SQL
 last_seen : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.111371
+Record received at 2026-02-15T14:52:51.834495
 27 Fields
 username : BOTH
 name : SQL
@@ -681,7 +681,7 @@ signal_strength : MONGO
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.111371
+Record received at 2026-02-15T14:52:51.834495
 23 Fields
 username : BOTH
 ip_address : SQL
@@ -707,7 +707,7 @@ comment : MONGO
 friends_count : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.111371
+Record received at 2026-02-15T14:52:51.834495
 28 Fields
 username : BOTH
 name : SQL
@@ -738,7 +738,7 @@ last_seen : MONGO
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.113376
+Record received at 2026-02-15T14:52:51.834495
 21 Fields
 username : BOTH
 ip_address : SQL
@@ -762,7 +762,7 @@ comment : MONGO
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.113376
+Record received at 2026-02-15T14:52:51.834495
 23 Fields
 username : BOTH
 name : SQL
@@ -788,7 +788,7 @@ signal_strength : MONGO
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.113376
+Record received at 2026-02-15T14:52:51.834495
 25 Fields
 username : BOTH
 name : SQL
@@ -816,7 +816,7 @@ is_active : MONGO
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.113376
+Record received at 2026-02-15T14:52:51.834495
 24 Fields
 username : BOTH
 phone : MONGO
@@ -843,7 +843,7 @@ avatar_url : SQL
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.113376
+Record received at 2026-02-15T14:52:51.834495
 31 Fields
 username : BOTH
 name : SQL
@@ -877,7 +877,7 @@ friends_count : MONGO
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.113376
+Record received at 2026-02-15T14:52:51.834495
 23 Fields
 username : BOTH
 name : SQL
@@ -903,7 +903,7 @@ comment : MONGO
 avatar_url : SQL
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.113376
+Record received at 2026-02-15T14:52:51.834495
 27 Fields
 username : BOTH
 name : SQL
@@ -933,7 +933,7 @@ avatar_url : SQL
 friends_count : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.115381
+Record received at 2026-02-15T14:52:51.834495
 28 Fields
 username : BOTH
 name : SQL
@@ -964,7 +964,7 @@ signal_strength : MONGO
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.115381
+Record received at 2026-02-15T14:52:51.834495
 22 Fields
 username : BOTH
 ip_address : SQL
@@ -989,7 +989,7 @@ is_active : MONGO
 friends_count : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.115381
+Record received at 2026-02-15T14:52:51.834495
 28 Fields
 username : BOTH
 email : MONGO
@@ -1020,7 +1020,7 @@ friends_count : MONGO
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.115381
+Record received at 2026-02-15T14:52:51.834495
 30 Fields
 username : BOTH
 ip_address : SQL
@@ -1053,7 +1053,7 @@ last_seen : MONGO
 friends_count : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.115381
+Record received at 2026-02-15T14:52:51.834495
 26 Fields
 username : BOTH
 email : MONGO
@@ -1082,7 +1082,7 @@ last_seen : MONGO
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.115381
+Record received at 2026-02-15T14:52:51.834495
 27 Fields
 username : BOTH
 name : SQL
@@ -1112,7 +1112,7 @@ comment : MONGO
 friends_count : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.115381
+Record received at 2026-02-15T14:52:51.834495
 26 Fields
 username : BOTH
 name : SQL
@@ -1141,7 +1141,7 @@ avatar_url : SQL
 friends_count : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.115381
+Record received at 2026-02-15T14:52:51.834495
 19 Fields
 username : BOTH
 name : SQL
@@ -1163,7 +1163,7 @@ last_seen : MONGO
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.117385
+Record received at 2026-02-15T14:52:51.834495
 28 Fields
 username : BOTH
 ip_address : SQL
@@ -1194,7 +1194,7 @@ last_seen : MONGO
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.117385
+Record received at 2026-02-15T14:52:51.834495
 25 Fields
 username : BOTH
 name : SQL
@@ -1222,7 +1222,7 @@ avatar_url : SQL
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.117385
+Record received at 2026-02-15T14:52:51.834495
 27 Fields
 username : BOTH
 name : SQL
@@ -1252,7 +1252,7 @@ error_code : MONGO
 friends_count : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.117385
+Record received at 2026-02-15T14:52:51.834495
 25 Fields
 username : BOTH
 name : SQL
@@ -1280,7 +1280,7 @@ timezone : SQL
 avatar_url : SQL
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.117385
+Record received at 2026-02-15T14:52:51.834495
 22 Fields
 username : BOTH
 ip_address : SQL
@@ -1305,7 +1305,7 @@ retry_count : MONGO
 comment : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.117385
+Record received at 2026-02-15T14:52:51.834495
 28 Fields
 username : BOTH
 name : SQL
@@ -1336,7 +1336,7 @@ last_seen : MONGO
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.117385
+Record received at 2026-02-15T14:52:51.834495
 26 Fields
 username : BOTH
 email : MONGO
@@ -1365,7 +1365,7 @@ avatar_url : SQL
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.119131
+Record received at 2026-02-15T14:52:51.834495
 19 Fields
 username : BOTH
 name : SQL
@@ -1387,7 +1387,7 @@ avatar_url : SQL
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.119131
+Record received at 2026-02-15T14:52:51.834495
 23 Fields
 username : BOTH
 name : SQL
@@ -1413,7 +1413,7 @@ avatar_url : SQL
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.119131
+Record received at 2026-02-15T14:52:51.834495
 28 Fields
 username : BOTH
 ip_address : SQL
@@ -1444,7 +1444,7 @@ friends_count : MONGO
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.119131
+Record received at 2026-02-15T14:52:51.844968
 24 Fields
 username : BOTH
 ip_address : SQL
@@ -1471,7 +1471,7 @@ last_seen : MONGO
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.119131
+Record received at 2026-02-15T14:52:51.844968
 23 Fields
 username : BOTH
 age : MONGO
@@ -1497,7 +1497,7 @@ friends_count : MONGO
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.119131
+Record received at 2026-02-15T14:52:51.844968
 26 Fields
 username : BOTH
 name : SQL
@@ -1526,7 +1526,7 @@ is_background : MONGO
 comment : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.119131
+Record received at 2026-02-15T14:52:51.844968
 26 Fields
 username : BOTH
 name : SQL
@@ -1555,7 +1555,7 @@ comment : MONGO
 avatar_url : SQL
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.119131
+Record received at 2026-02-15T14:52:51.844968
 24 Fields
 username : BOTH
 name : SQL
@@ -1582,7 +1582,7 @@ avatar_url : SQL
 last_seen : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.119131
+Record received at 2026-02-15T14:52:51.844968
 30 Fields
 username : BOTH
 name : SQL
@@ -1615,7 +1615,7 @@ disk_usage : MONGO
 last_seen : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.119131
+Record received at 2026-02-15T14:52:51.844968
 22 Fields
 username : BOTH
 name : SQL
@@ -1640,7 +1640,7 @@ friends_count : MONGO
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.119131
+Record received at 2026-02-15T14:52:51.844968
 24 Fields
 username : BOTH
 name : SQL
@@ -1667,7 +1667,7 @@ error_code : MONGO
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.119131
+Record received at 2026-02-15T14:52:51.844968
 28 Fields
 username : BOTH
 ip_address : SQL
@@ -1698,7 +1698,7 @@ friends_count : MONGO
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.119131
+Record received at 2026-02-15T14:52:51.844968
 23 Fields
 username : BOTH
 email : MONGO
@@ -1724,7 +1724,7 @@ avatar_url : SQL
 last_seen : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.119131
+Record received at 2026-02-15T14:52:51.844968
 29 Fields
 username : BOTH
 name : SQL
@@ -1756,7 +1756,7 @@ avatar_url : SQL
 friends_count : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.119131
+Record received at 2026-02-15T14:52:51.844968
 32 Fields
 username : BOTH
 name : SQL
@@ -1791,7 +1791,7 @@ last_seen : MONGO
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.119131
+Record received at 2026-02-15T14:52:51.844968
 24 Fields
 username : BOTH
 ip_address : SQL
@@ -1818,7 +1818,7 @@ is_background : MONGO
 avatar_url : SQL
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.119131
+Record received at 2026-02-15T14:52:51.844968
 26 Fields
 username : BOTH
 charging : MONGO
@@ -1847,7 +1847,7 @@ last_seen : MONGO
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.119131
+Record received at 2026-02-15T14:52:51.844968
 23 Fields
 username : BOTH
 name : SQL
@@ -1873,7 +1873,7 @@ last_seen : MONGO
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.119131
+Record received at 2026-02-15T14:52:51.844968
 25 Fields
 username : BOTH
 name : SQL
@@ -1901,7 +1901,7 @@ avatar_url : SQL
 friends_count : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.119131
+Record received at 2026-02-15T14:52:51.844968
 30 Fields
 username : BOTH
 name : SQL
@@ -1934,7 +1934,7 @@ last_seen : MONGO
 friends_count : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.119131
+Record received at 2026-02-15T14:52:51.844968
 30 Fields
 username : BOTH
 name : SQL
@@ -1967,7 +1967,7 @@ last_seen : MONGO
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.119131
+Record received at 2026-02-15T14:52:51.844968
 25 Fields
 username : BOTH
 name : SQL
@@ -1995,7 +1995,7 @@ friends_count : MONGO
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.119131
+Record received at 2026-02-15T14:52:51.844968
 26 Fields
 username : BOTH
 ip_address : SQL
@@ -2024,7 +2024,7 @@ last_seen : MONGO
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.119131
+Record received at 2026-02-15T14:52:51.844968
 27 Fields
 username : BOTH
 name : SQL
@@ -2054,7 +2054,7 @@ comment : MONGO
 last_seen : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.119131
+Record received at 2026-02-15T14:52:51.850598
 23 Fields
 username : BOTH
 name : SQL
@@ -2080,7 +2080,7 @@ error_code : MONGO
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.119131
+Record received at 2026-02-15T14:52:51.850598
 26 Fields
 username : BOTH
 name : SQL
@@ -2109,7 +2109,7 @@ retry_count : MONGO
 friends_count : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.119131
+Record received at 2026-02-15T14:52:51.850598
 25 Fields
 username : BOTH
 ip_address : SQL
@@ -2137,7 +2137,7 @@ friends_count : MONGO
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.119131
+Record received at 2026-02-15T14:52:51.850598
 28 Fields
 username : BOTH
 name : SQL
@@ -2168,7 +2168,7 @@ avatar_url : SQL
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.119131
+Record received at 2026-02-15T14:52:51.850598
 32 Fields
 username : BOTH
 name : SQL
@@ -2203,7 +2203,7 @@ friends_count : MONGO
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.119131
+Record received at 2026-02-15T14:52:51.850598
 29 Fields
 username : BOTH
 ip_address : SQL
@@ -2235,7 +2235,7 @@ comment : MONGO
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.119131
+Record received at 2026-02-15T14:52:51.850598
 27 Fields
 username : BOTH
 name : SQL
@@ -2265,7 +2265,7 @@ comment : MONGO
 avatar_url : SQL
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.119131
+Record received at 2026-02-15T14:52:51.850598
 24 Fields
 username : BOTH
 name : SQL
@@ -2292,7 +2292,7 @@ friends_count : MONGO
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.119131
+Record received at 2026-02-15T14:52:51.850598
 28 Fields
 username : BOTH
 name : SQL
@@ -2323,7 +2323,7 @@ avatar_url : SQL
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.119131
+Record received at 2026-02-15T14:52:51.850598
 25 Fields
 username : BOTH
 email : MONGO
@@ -2351,7 +2351,7 @@ comment : MONGO
 avatar_url : SQL
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.119131
+Record received at 2026-02-15T14:52:51.850598
 28 Fields
 username : BOTH
 name : SQL
@@ -2382,7 +2382,7 @@ error_code : MONGO
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.119131
+Record received at 2026-02-15T14:52:51.850598
 26 Fields
 username : BOTH
 phone : MONGO
@@ -2411,7 +2411,7 @@ avatar_url : SQL
 friends_count : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.119131
+Record received at 2026-02-15T14:52:51.850598
 28 Fields
 username : BOTH
 name : SQL
@@ -2442,7 +2442,7 @@ is_active : MONGO
 avatar_url : SQL
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.119131
+Record received at 2026-02-15T14:52:51.850598
 27 Fields
 username : BOTH
 name : SQL
@@ -2472,7 +2472,7 @@ last_seen : MONGO
 friends_count : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.119131
+Record received at 2026-02-15T14:52:51.850598
 31 Fields
 username : BOTH
 name : SQL
@@ -2506,7 +2506,7 @@ friends_count : MONGO
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.130342
+Record received at 2026-02-15T14:52:51.850598
 23 Fields
 username : BOTH
 name : SQL
@@ -2532,7 +2532,7 @@ last_seen : MONGO
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.130342
+Record received at 2026-02-15T14:52:51.850598
 24 Fields
 username : BOTH
 name : SQL
@@ -2559,7 +2559,7 @@ error_code : MONGO
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.130342
+Record received at 2026-02-15T14:52:51.850598
 22 Fields
 username : BOTH
 ip_address : SQL
@@ -2584,7 +2584,7 @@ ram_usage : SQL
 avatar_url : SQL
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.130342
+Record received at 2026-02-15T14:52:51.850598
 29 Fields
 username : BOTH
 name : SQL
@@ -2616,7 +2616,7 @@ friends_count : MONGO
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.130342
+Record received at 2026-02-15T14:52:51.850598
 23 Fields
 username : BOTH
 ip_address : SQL
@@ -2642,7 +2642,7 @@ last_seen : MONGO
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.130342
+Record received at 2026-02-15T14:52:51.850598
 33 Fields
 username : BOTH
 name : SQL
@@ -2678,7 +2678,7 @@ friends_count : MONGO
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.130342
+Record received at 2026-02-15T14:52:51.850598
 23 Fields
 username : BOTH
 name : SQL
@@ -2704,7 +2704,7 @@ friends_count : MONGO
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.130342
+Record received at 2026-02-15T14:52:51.850598
 22 Fields
 username : BOTH
 email : MONGO
@@ -2729,7 +2729,7 @@ friends_count : MONGO
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.130342
+Record received at 2026-02-15T14:52:51.850598
 23 Fields
 username : BOTH
 email : MONGO
@@ -2755,7 +2755,7 @@ avatar_url : SQL
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.130342
+Record received at 2026-02-15T14:52:51.850598
 25 Fields
 username : BOTH
 ip_address : SQL
@@ -2783,7 +2783,7 @@ last_seen : MONGO
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.132356
+Record received at 2026-02-15T14:52:51.850598
 24 Fields
 username : BOTH
 name : SQL
@@ -2810,7 +2810,7 @@ avatar_url : SQL
 metadata : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.132356
+Record received at 2026-02-15T14:52:51.850598
 27 Fields
 username : BOTH
 name : SQL
@@ -2840,7 +2840,7 @@ avatar_url : SQL
 friends_count : MONGO
 sys_ingested_time : BOTH
 
-Record received at 2026-02-15T14:13:32.132356
+Record received at 2026-02-15T14:52:51.850598
 26 Fields
 username : BOTH
 ip_address : SQL
