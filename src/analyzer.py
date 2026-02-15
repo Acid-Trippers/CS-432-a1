@@ -3,7 +3,6 @@ import os
 import json
 from typing import Dict, Any, List
 from collections import defaultdict
-from metadata_store import MetadataStore
 from timestamp_manager import TimestampManager
 
 class DataAnalyzer:
@@ -85,6 +84,8 @@ class DataAnalyzer:
             # Inside the loop in save_analysis:
             fields_summary.append({
                 'field_name': f,
+                'count': count,
+                'total_records_fetched': self.total_records,
                 'frequency': freq,
                 'dominant_type': dom_type,
                 'type_stability': stability,
@@ -128,7 +129,7 @@ def run_data_analysis():
         ts_manager.update_timestamps(latest_ts, len(data))
 
         # 4. Initialize MetadataStore (Preparation for Classification)
-        meta_store = MetadataStore()
+        
         # We don't sync_from_pipeline yet because classification hasn't happened,
         # but we've recorded that the analysis phase is complete in the logs.
         
