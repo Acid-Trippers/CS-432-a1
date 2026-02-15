@@ -4,6 +4,7 @@ import os
 import subprocess
 import time
 import sys
+from datetime import datetime
 
 def wait_for_server(url: str, timeout: int = 15):
     start_time = time.time()
@@ -30,6 +31,10 @@ def collect_data(url: str, count: int, output_file: str = "data/raw_data.json"):
             for line in response.iter_lines():
                 if line.startswith("data: "):
                     record = json.loads(line[6:])
+                    
+                    # Add Ingestion Time
+                    record['sys_ingested_time'] = datetime.now().isoformat()
+                    
                     records.append(record)
                     
                     if len(records) % 100 == 0:
@@ -77,3 +82,6 @@ def run_data_collection(record_count: int = 1000):
     else:
         print(">>> Error: Server failed to start or timed out.")
         server_proc.terminate()
+
+if __name__ == "__main__":
+    run_data_collection()

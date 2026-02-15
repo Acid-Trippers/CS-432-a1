@@ -4,6 +4,7 @@ import json
 import time
 import subprocess
 import httpx
+from datetime import datetime
 
 scriptDir = os.path.dirname(os.path.abspath(__file__))
 dataDir = os.path.join(scriptDir, '..', 'data')
@@ -61,6 +62,7 @@ def processAndSplit(recordCount: int):
                     continue
                 
                 recordJson = json.loads(line[6:])
+                recordJson['sys_ingested_time'] = datetime.now().isoformat() #sys_ingested_time
                 count += 1
                 
                 sqlDoc = {}
