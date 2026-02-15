@@ -33,7 +33,7 @@ def run_initialization():
 
 def run_router(count):
     print(f"\n>>> Starting Router for {count} records...")
-    print("Using rules from 'classification_results.json' to route data.")
+    print("Using rules from 'field_metadata.json' to route data.")
     processAndSplit(count)
 
 if __name__ == "__main__":
