@@ -13,6 +13,7 @@ externalDir = os.path.join(scriptDir, '..', 'external')
 classificationFile = os.path.join(dataDir, 'classification_results.json')
 sqlOutputFile = os.path.join(dataDir, 'sql_records.json')
 mongoOutputFile = os.path.join(dataDir, 'mongo_records.json')
+routerLogFile = os.path.join(dataDir, 'router_logger.txt')
 
 def loadClassificationMap():
     if not os.path.exists(classificationFile):
@@ -55,21 +56,29 @@ def processAndSplit(recordCount: int):
             print("Server failed to start.")
             return
 
-        with httpx.stream("GET", url, timeout=None) as response:
+        with open(routerLogFile, 'w') as logFile, httpx.stream("GET", url, timeout=None) as response:
             count = 0
             for line in response.iter_lines():
                 if not line.startswith("data: "):
                     continue
                 
                 recordJson = json.loads(line[6:])
-                recordJson['sys_ingested_time'] = datetime.now().isoformat() #sys_ingested_time
+                
+                ingestTime = datetime.now().isoformat()
+                recordJson['sys_ingested_time'] = ingestTime
+                
                 count += 1
                 
                 sqlDoc = {}
                 mongoDoc = {}
 
+                logEntry = f"Record received at {ingestTime}\n"
+                logEntry += f"{len(recordJson)} Fields\n"
+
                 for field, value in recordJson.items():
                     decision = schemaMap.get(field, "MONGO")
+
+                    logEntry += f"{field} : {decision}\n"
 
                     if decision == "SQL":
                         sqlDoc[field] = value
@@ -78,6 +87,9 @@ def processAndSplit(recordCount: int):
                     elif decision == "BOTH":
                         sqlDoc[field] = value
                         mongoDoc[field] = value
+                
+                logEntry += "\n"
+                logFile.write(logEntry)
                 
                 if sqlDoc: sqlRecords.append(sqlDoc)
                 if mongoDoc: mongoRecords.append(mongoDoc)
@@ -98,6 +110,7 @@ def processAndSplit(recordCount: int):
         json.dump(mongoRecords, f, indent=2)
 
     print(f"Saved {len(sqlRecords)} SQL records and {len(mongoRecords)} Mongo records.")
+    print(f"Router logs saved to {routerLogFile}")
 
 if __name__ == "__main__":
     count = 10
