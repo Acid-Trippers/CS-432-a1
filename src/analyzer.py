@@ -3,7 +3,7 @@ import os
 import json
 from typing import Dict, Any, List
 from collections import defaultdict
-from timestamp_manager import TimestampManager
+
 
 class DataAnalyzer:
     def __init__(self):
@@ -14,14 +14,6 @@ class DataAnalyzer:
         self.value_count_limit = 10000
         self.nested_fields = set()
         self.array_fields = set()
-        self.pattern_matches = defaultdict(lambda: defaultdict(int))
-        self.patterns = {
-            'ip_address': re.compile(r'^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$'),
-            'email': re.compile(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'),
-            'url': re.compile(r'^https?://'),
-            'uuid': re.compile(r'^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$', re.I),
-            'iso_timestamp': re.compile(r'^\d{4}-\d{2}-\d{2}[T\s]\d{2}:\d{2}:\d{2}'),
-        }
 
     def _get_type_name(self, value: Any) -> str:
         if value is None: return 'null'
@@ -35,30 +27,24 @@ class DataAnalyzer:
 
     def _detect_pattern(self, value: Any) -> str:
         if not isinstance(value, str): return 'none'
-        for name, regex in self.patterns.items():
-            if regex.match(value): return name
+        if re.search(r'\d', value) and re.search(r'[.\-_]', value):
+            mask = re.sub(r'\d+', 'd', value)
+            return f"{mask}"
         return 'none'
 
     def _analyze_value(self, field_name: str, value: Any):
         self.field_counts[field_name] += 1
         type_name = self._get_type_name(value)
         self.field_types[field_name][type_name] += 1
-        
-        # CHANGE HERE: Check for dots in the field name to detect nesting
-        if "." in field_name:
+        if isinstance(value, dict):
             self.nested_fields.add(field_name)
-            
-        if isinstance(value, list):
+        elif isinstance(value, list):
             self.array_fields.add(field_name)
         else:
-            # Note: We don't check for 'dict' here anymore because 
-            # the Normalizer has already flattened them.
             if len(self.field_values[field_name]) < self.value_count_limit:
                 self.field_values[field_name].add(str(value))
             if isinstance(value, str):
                 pattern = self._detect_pattern(value)
-                if pattern != 'none':
-                    self.pattern_matches[field_name][pattern] += 1
 
     def analyze_records(self, records: List[Dict]):
         for record in records:
@@ -76,23 +62,25 @@ class DataAnalyzer:
             freq = count / self.total_records
             type_counts = self.field_types[f]
             dom_type, type_val = max(type_counts.items(), key=lambda x: x[1])
+            if dom_type == "string" and self.field_values[f]:
+            # Get one sample value from our stored set to check the pattern
+                sample_value = next(iter(self.field_values[f]))
+                pattern = self._detect_pattern(sample_value)
+            
+            # If it matches your mask logic (e.g., 'pattern_d.d.d.d'), use it as the type
+                if pattern != 'none':
+                    dom_type = pattern
             stability = type_val / sum(type_counts.values())
             cardinality = len(self.field_values[f]) / count if count > 0 else 0
-            patterns = self.pattern_matches[f]
-            dom_pattern = max(patterns.items(), key=lambda x: x[1])[0] if patterns else 'none'
             
-            # Inside the loop in save_analysis:
             fields_summary.append({
                 'field_name': f,
-                'count': count,
-                'total_records_fetched': self.total_records,
                 'frequency': freq,
                 'dominant_type': dom_type,
                 'type_stability': stability,
                 'cardinality': cardinality,
-                'is_nested': f in self.nested_fields, # This will now be TRUE for "metadata.temp"
+                'is_nested': f in self.nested_fields,
                 'is_array': f in self.array_fields,
-                'dominant_pattern': dom_pattern
             })
 
         summary = {
@@ -124,24 +112,6 @@ def run_data_analysis():
                 if latest_ts == "unknown" or rec['timestamp'] > latest_ts:
                     latest_ts = rec['timestamp']
 
-        # 3. Log History in TimestampManager
-        ts_manager = TimestampManager()
-        ts_manager.update_timestamps(latest_ts, len(data))
-
-        # 4. Initialize MetadataStore (Preparation for Classification)
-        
-        # We don't sync_from_pipeline yet because classification hasn't happened,
-        # but we've recorded that the analysis phase is complete in the logs.
-        
         print(f"Pipeline State Updated: {len(data)} records analyzed and logged in history.")
     else:
         print(f"No data found at {INPUT_FILE}. Run client.py first.")
-
-# EXPLANATION OF INTEGRATION:
-# 1. NON-DESTRUCTIVE: The DataAnalyzer class remains exactly as you provided. 
-# 2. HISTORICAL LOGGING: By calling TimestampManager immediately after analysis, 
-#    we record exactly when the analysis happened and how many records were involved.
-# 3. LATEST TIMESTAMP DISCOVERY: The code scans the batch to find the newest 
-#    'timestamp' value. This is passed to the manager to update the "High Water Mark".
-# 4. PREPARING THE STORE: By initializing MetadataStore here, we ensure the 
-#    directory and initial JSON exist before the Classifier takes over.

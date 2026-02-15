@@ -1,0 +1,18 @@
+Drift detected for field 'timestamp' at 2026-02-15T17:40:36.210371
+Expected: d-d-dTd:d:d.d, Found: string. Routing to MONGO.
+
+Drift detected for field 'avatar_url' at 2026-02-15T17:40:36.210371
+Expected: https://dummyimage.com/dxd, Found: string. Routing to MONGO.
+
+Drift detected for field 'sys_ingested_time' at 2026-02-15T17:40:36.210371
+Expected: d-d-dTd:d:d.d, Found: string. Routing to MONGO.
+
+Drift detected for field 'ip_address' at 2026-02-15T17:40:36.210371
+Expected: d.d.d.d, Found: string. Routing to MONGO.
+
+Drift detected for field 'device_id' at 2026-02-15T17:40:36.210371
+Expected: becdddd-dadb-dbed-ddfd-cbdcdcded, Found: string. Routing to MONGO.
+
+Drift detected for field 'session_id' at 2026-02-15T17:40:36.210371
+Expected: ddad-bbbc-de-bd-dedfdddcd, Found: string. Routing to MONGO.
+

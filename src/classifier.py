@@ -26,7 +26,6 @@ class FieldStats:
     cardinality: float
     isNested: bool
     isArray: bool
-    dominantPattern: str
 
 class SchemaClassifier:
     def __init__(self, weights: Dict[str, float], limits: Dict[str, float], threshold: float):
@@ -120,7 +119,6 @@ def runPipeline():
             cardinality=record['cardinality'],
             isNested=record['is_nested'],
             isArray=record['is_array'],
-            dominantPattern=record['dominant_pattern']
         )
         
         res = classifier.classifyField(stats)
